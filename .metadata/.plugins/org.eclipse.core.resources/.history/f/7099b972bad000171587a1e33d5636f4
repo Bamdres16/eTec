@@ -1,0 +1,7 @@
+package com.tec.jaxrs;
+
+public class Jaxts {
+	public final String name = "";
+	public final String data = "";
+	public final String url = "";
+}

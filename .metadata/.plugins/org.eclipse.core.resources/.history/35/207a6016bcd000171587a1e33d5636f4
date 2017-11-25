@@ -1,0 +1,7 @@
+package com.tec.jaxrs;
+
+import javax.ws.rs.core.Application;
+
+public class JaxtsApplication extends Application {
+
+}
