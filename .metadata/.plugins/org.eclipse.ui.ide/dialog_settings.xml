@@ -10,6 +10,9 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/edgarchaves/git/eTec/PacketTecServer"/>
+			<item value="/Users/edgarchaves/git/eTec/PacketTec"/>
+			<item value="/Users/edgarchaves/git/eTec"/>
 			<item value="C:\Proyectos\WorkSpace Packet TEC"/>
 			<item value="C:\Proyectos\PacketTecServer"/>
 			<item value="C:\Proyectos\"/>
