@@ -14,6 +14,9 @@ import {RegistroPage} from '../pages/registro/registro';
 import {ServidorPage} from '../pages/servidor/servidor';
 import {MensajePage} from '../pages/mensaje/mensajes';
 import {ContactosPage} from '../pages/contactos/contactos';
+import { HttpProvider } from '../providers/http/http';
+import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import {ContactosPage} from '../pages/contactos/contactos';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -49,7 +54,8 @@ import {ContactosPage} from '../pages/contactos/contactos';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpProvider
   ]
 })
 export class AppModule {}
