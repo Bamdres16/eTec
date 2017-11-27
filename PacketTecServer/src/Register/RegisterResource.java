@@ -25,7 +25,7 @@ public class RegisterResource {
 	@Produces("application/json")
 	@Consumes("application/json")
 	public Response registrar(RegisterEntity registro) {
-
+		
 		data.add(registro);
 
 		results.put("results", data);
@@ -41,4 +41,5 @@ public class RegisterResource {
 		
 
 	}
+	
 }

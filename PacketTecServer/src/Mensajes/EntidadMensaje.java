@@ -1,19 +1,14 @@
 package Mensajes;
 
-import java.util.UUID;
+
 
 public class EntidadMensaje {
-	private String name;
+	private String remitente;
 	private String message;
 	private String id;
+	private String destinatario;
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 
 	public String getMessage() {
 		return message;
@@ -29,6 +24,22 @@ public class EntidadMensaje {
 
 	public String getIde() {
 		return id;
+	}
+
+	public String getRemitente() {
+		return remitente;
+	}
+
+	public void setRemitente(String remitente) {
+		this.remitente = remitente;
+	}
+
+	public String getDestinatario() {
+		return destinatario;
+	}
+
+	public void setDestinatario(String destinatario) {
+		this.destinatario = destinatario;
 	}
 
 }

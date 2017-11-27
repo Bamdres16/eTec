@@ -12,6 +12,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import org.json.simple.JSONObject;
+
 @Path("/message")
 public class RecursosMensajes {
 	public static void main(String[] args) {
@@ -20,13 +22,15 @@ public class RecursosMensajes {
 	}
 
 	private static List<EntidadMensaje> data = new ArrayList<>();
-
+	private static JSONObject results = new JSONObject();
+	
 	@POST
 	@Produces("application/json")
 	@Consumes("application/json")
 	public Response sendMensage(EntidadMensaje mensaje) {
 		mensaje.identificador(UUID.randomUUID().toString());
 		data.add(mensaje);
+		results.put("messages", data);
 		return Response.ok("Success").build();
 
 	}
@@ -35,7 +39,7 @@ public class RecursosMensajes {
 	@Produces("application/json")
 	public Response getMessage() {
 		try {
-			return Response.ok().entity(data).build();
+			return Response.ok().entity(results).build();
 		} catch (Exception ex) {
 			return Response.serverError().entity(ex.getMessage()).build();
 		}
@@ -46,7 +50,7 @@ public class RecursosMensajes {
 	@Path("{num}")
 	public Response getMessageID(@PathParam("num") int num) {
 		try {
-			return Response.ok().entity(data.get(num).getIde()).build();
+			return Response.ok().entity(results.get("messages")).build();
 		} catch (Exception ex) {
 			return Response.serverError().entity(ex.getMessage()).build();
 		}
