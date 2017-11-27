@@ -1,25 +1,36 @@
 <ion-header>
   <ion-navbar>
     <ion-title >
-      Registro
+      Login
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-item>
+      <img src="assets/imgs/background-Mensajeria.png" >
+    </ion-item>
   <ion-list>
 
     <ion-item>
-      <ion-label floating>Usuario</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label color="primary"stacked>Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="username" #user="ngModel" placeholder="User" required minlength="4"></ion-input>
     </ion-item>
+    <div class="form-error" *ngIf="user.errors && (user.dirty || user.touched)">
+      <p ion-text color="danger" [hidden]="!user.errors.required">Campo requerido.</p>
+      <p ion-text color="danger" [hidden]="!user.errors.minlength">Minimo 4 cacteres.</p>
+    </div>
 
     <ion-item>
-      <ion-label floating>Contraseña</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-label color="primary" stacked>Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="password" #pass="ngModel"  placeholder="Password" required minlength="6"></ion-input>
     </ion-item>
+    <div class="form-error" *ngIf="pass.errors && (pass.dirty || pass.touched)">
+      <p ion-text color="danger" [hidden]="!pass.errors.required">Campo requerido.</p>
+      <p ion-text color="danger" [hidden]="!pass.errors.minlength">Minimo 6 caracteres.</p>
+    </div>
 
   </ion-list>
   <button ion-button block color ="dark" round>Entrar</button>
-  <button ion-button block color = "dark" round >Registrarse</button>
+  <button ion-button block color = "dark" round (click)=registro() >Registrarse</button>
 </ion-content>

@@ -32,7 +32,7 @@ public class RegisterResource {
 
 		return Response.ok("Sucess").build();
 	}
-
+	
 	@GET
 	@Produces("application/json")
 	public JSONObject getRegistros() {
