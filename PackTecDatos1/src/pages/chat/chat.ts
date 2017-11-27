@@ -13,11 +13,14 @@ export class ChatPage {
 
   }
   cargarUsuarios(){
+	  console.log (this.http.getUsers().subscribe())
     this.http.getUsers().subscribe((data) =>{
       this.usuarios = data['results'];
+	  
       console.log(this.usuarios)
     },
     (error) =>{
+	 
       console.log(error);
     }
   )

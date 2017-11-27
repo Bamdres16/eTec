@@ -1,0 +1,6 @@
+
+ Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
+------+------+---------------------------+---------------------------+---------------------------
+     0     99   26/11/17 20:54:33:817 CST   26/11/17 21:33:50:850 CST java.lang.IllegalArgumentException com.ibm.ws.anno.targets.internal.AnnotationTargetsImpl_Targets 529
+                                                                            - C:\Proyectos\WorkSpace Packet TEC\runtime environment\usr\servers\PacketTecServer\logs\ffdc\ffdc_17.11.26_20.54.33.0.log
+------+------+---------------------------+---------------------------+---------------------------

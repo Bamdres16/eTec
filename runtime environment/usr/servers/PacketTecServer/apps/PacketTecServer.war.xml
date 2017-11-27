@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive>
-    <dir sourceOnDisk="/home/berta/ownCloud/ioniCurso/ProyectoDatos3/eTec/PacketTecServer/WebContent" targetInArchive="/"/>
+    <dir sourceOnDisk="C:\Proyectos\WorkSpace Packet TEC\PacketTecServer\WebContent" targetInArchive="/"/>
 </archive>
