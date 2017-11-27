@@ -1,0 +1,13 @@
+package com.tec.dto;
+
+import org.json.simple.JSONArray;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		JSONArray s = new JSONArray();
+		System.out.println(s);
+	}
+
+}

@@ -1,0 +1,30 @@
+package Mensajes;
+
+import java.util.UUID;
+
+public class EntidadMensaje {
+	private String name;
+	private String message;
+	private UUID id;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
+	public void identificador (UUID id) {
+		this.id = id;
+	}
+	public UUID getIde () {
+		return id;
+	}
+	
+}

@@ -1,0 +1,22 @@
+package com.tec.dto;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		JSONObject results = new JSONObject();
+		JSONArray arra = new JSONArray();
+		
+		for (int i =0;i<4;i++) {
+			JSONObject aas = new JSONObject();
+			aas.put("Obj", i);
+			arra.add(aas);
+		}
+		results.put("results", arra);
+		System.out.println(results);
+	}
+
+}

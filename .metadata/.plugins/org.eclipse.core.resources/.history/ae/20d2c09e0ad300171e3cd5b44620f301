@@ -1,0 +1,5 @@
+package Mensajes;
+
+public interface Observador {
+
+}

@@ -1,0 +1,14 @@
+package com.tec.resources;
+
+import org.glassfish.jersey.server.ResourceConfig;
+
+import com.fasterxml.jackson.jaxrs.annotation.JacksonFeatures;
+
+import Register.RegisterResource;
+
+public class Application extends ResourceConfig  {
+	public Application() {
+		register(RegisterResource.class);
+		register(JacksonFeatures.class);
+	}
+}

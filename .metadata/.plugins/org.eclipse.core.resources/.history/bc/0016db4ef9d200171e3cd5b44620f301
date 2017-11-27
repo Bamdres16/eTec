@@ -1,0 +1,12 @@
+package Mensajes;
+
+public class EntidadMensaje {
+	private String name;
+	private String message;
+	public EntidadMensaje(String name, String message) {
+		super();
+		this.name = name;
+		this.message = message;
+	}
+	
+}

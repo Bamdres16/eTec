@@ -1,0 +1,5 @@
+package com.tec.resources;
+
+public interface Resources {
+
+}

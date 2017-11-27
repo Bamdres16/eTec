@@ -1,0 +1,27 @@
+package com.tec.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import com.tec.register.RegisterEntity;
+
+public class main {
+
+	public static void main(String[] args) {
+		llama (0);
+	}
+	public static int llama (int cont) {
+		if(cont == 5) {
+			System.out.println( 0);
+			return 0;
+		}
+		else {
+			System.out.println(llama(cont+1));
+			return llama(cont+1);
+		}
+	}
+
+}
