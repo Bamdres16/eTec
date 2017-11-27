@@ -1,4 +1,4 @@
-package Register;
+package com.tec.register;
 
 import java.util.ArrayList;
 import java.util.List;

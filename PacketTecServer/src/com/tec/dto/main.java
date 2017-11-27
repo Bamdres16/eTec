@@ -6,7 +6,7 @@ import java.util.List;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import Register.RegisterEntity;
+import com.tec.register.RegisterEntity;
 
 public class main {
 

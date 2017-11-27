@@ -30,7 +30,6 @@ INDEX VERSION 1.130+C:\Proyectos\WorkSpace Packet TEC\.metadata\.plugins\org.ecl
 2448988919.index
 2782379530.index
 543409727.index
-3384484388.index
 4005617011.index
 731269609.index
 1404572570.index

@@ -3,9 +3,8 @@ package com.tec.resources;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import com.fasterxml.jackson.jaxrs.annotation.JacksonFeatures;
-
-import Mensajes.RecursosMensajes;
-import Register.RegisterResource;
+import com.tec.messages.RecursosMensajes;
+import com.tec.register.RegisterResource;
 
 public class Application extends ResourceConfig {
 	public Application() {

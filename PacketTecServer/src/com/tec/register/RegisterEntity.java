@@ -1,4 +1,4 @@
-package Register;
+package com.tec.register;
 
 public class RegisterEntity {
 	private String name;

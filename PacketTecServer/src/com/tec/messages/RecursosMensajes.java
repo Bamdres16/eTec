@@ -1,4 +1,4 @@
-package Mensajes;
+package com.tec.messages;
 
 import java.util.ArrayList;
 import java.util.List;
