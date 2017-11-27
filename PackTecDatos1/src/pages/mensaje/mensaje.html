@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title> Chat </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-9 class = "message">
+        <span class = "user_name"></span><br>
+        <div class="time"> date:'dd.MM hh:MM'</div>
+      </ion-col>
+      <ion-col col-md class = "message">
+        <span class = "user_name"></span><br>
+        <div class="time"> date:'dd.MM hh:MM'</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row class= ''message_row>
+      <ion-col col-9>
+        <ion-item no lines>
+          <ion-input type= "text"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button clear color="primary">Enviar </button>
+      </ion-col>
+     </ion-row>
+  </ion-toolbar>
+</ion-footer>
