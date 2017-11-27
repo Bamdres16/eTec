@@ -1,36 +1,57 @@
 <ion-header>
   <ion-navbar>
-
-    <ion-title class = "card-title" >
-      <button ion-button icon-end>
-        <ion-icon name="arrow-round-back"></ion-icon>
-      </button>
-      Registro
-    </ion-title>
+    <ion-title>Registro</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
     <ion-item>
-      <ion-label color="primary">Nombre</ion-label>
-      <ion-input placeholder="Bertha Brenes"></ion-input>
+      <ion-label color="primary"stacked>Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="username" #user="ngModel" placeholder="User" required minlength="4"></ion-input>
     </ion-item>
+    <div class="form-error" *ngIf="user.errors && (user.dirty || user.touched)">
+      <p ion-text color="danger" [hidden]="!user.errors.required">Campo requerido.</p>
+      <p ion-text color="danger" [hidden]="!user.errors.minlength">Minimo 4 cacteres.</p>
+    </div>
 
     <ion-item>
-      <ion-label color="primary" fixed>Carnet</ion-label>
-      <ion-input type="tel" placeholder="2017..t"></ion-input>
+      <ion-label color="primary"stacked>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="name" #nombre="ngModel" placeholder="Name" pattern="[a-zA-Z]*" required></ion-input>
     </ion-item>
+    <div class="form-error" *ngIf="nombre.errors && (nombre.dirty || nombre.touched)">
+      <p ion-text color="danger" [hidden]="!nombre.errors.required">Campo requerido.</p>
+      <p ion-text color="danger" [hidden]="!nombre.errors.pattern">Solo usar letras.</p>
+    </div>
+
 
     <ion-item>
       <ion-label color="primary" stacked>Correo</ion-label>
-      <ion-input type="email" placeholder="bertacaro@11.com"></ion-input>
+      <ion-input type="email" [(ngModel)]="email" #correo="ngModel" required email placeholder="email@domain.com"></ion-input>
     </ion-item>
+    <div class="form-error" *ngIf="correo.errors && (correo.dirty || correo.touched)">
+      <p ion-text color="danger" [hidden]="!correo.errors.required">Campo requerido.</p>
+      <p ion-text color="danger" [hidden]="!correo.errors.email">Correo invalido.</p>
+    </div>
 
     <ion-item>
       <ion-label color="primary" stacked>Contraseña</ion-label>
-      <ion-input type="password" placeholder="Patito chochinito"></ion-input>
+      <ion-input type="password" [(ngModel)]="password" #pass="ngModel"  placeholder="Password" required minlength="6"></ion-input>
     </ion-item>
+    <div class="form-error" *ngIf="pass.errors && (pass.dirty || pass.touched)">
+      <p ion-text color="danger" [hidden]="!pass.errors.required">Campo requerido.</p>
+      <p ion-text color="danger" [hidden]="!pass.errors.minlength">Minimo 6 caracteres.</p>
+    </div>
+
+    <ion-item>
+      <ion-label color="primary" stacked> Confirmar Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="passwordconfirm" #confirmPass="ngModel"  placeholder="Password" required [equalTo]="pass"></ion-input>
+    </ion-item>
+    <div class="form-error" *ngIf="confirmPass.errors && (confirmPass.dirty || confirmPass.touched)">
+      <p ion-text color="danger" [hidden]="!confirmPass.errors.required">Campo requerido.</p>
+      <p ion-text color="danger" [hidden]="!confirmPass.errors.equalTo">Tiene que ser igual.</p>
+    </div>
   </ion-list>
-  <button ion-button block color = "dark" round >Registrarse</button>
+  <button ion-button (click)="callPostService(ussername, name, email, password)" block color = "dark" round >Registrarse</button>
+  <ion-textarea>class="netResponse" </ion-textarea>
 </ion-content>

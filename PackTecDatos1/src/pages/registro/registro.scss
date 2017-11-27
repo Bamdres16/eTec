@@ -1,4 +1,8 @@
 page-registro{
+  .netResponse {
+    color: red;
+  }
+  
   .card-title {
   position: absolute;
   top: 0; bottom:5; left: 00; right:100;
@@ -7,4 +11,5 @@ page-registro{
   width: 100%;
   color: #0c1b33;
   }
+  
 }
