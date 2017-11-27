@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Proyectos\WorkSpace Packet TEC\PackTecDatos1"/>
 		<item value="C:\Users\Brayan Muñoz\Desktop\tec"/>
 		<item value="C:\Users\Brayan Muñoz\Desktop\TestJersey2"/>
 	</list>
@@ -9,6 +10,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Proyectos\WorkSpace Packet TEC"/>
 			<item value="C:\Proyectos\PacketTecServer"/>
 			<item value="C:\Proyectos\"/>
 		</list>
