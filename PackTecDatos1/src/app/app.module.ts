@@ -16,7 +16,9 @@ import {MensajePage} from '../pages/mensaje/mensajes';
 import {ContactosPage} from '../pages/contactos/contactos';
 import { HttpProvider } from '../providers/http/http';
 import {HttpModule} from '@angular/http';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';     
+import { CustomFormsModule } from 'ng2-validation';
 
 @NgModule({
   declarations: [
@@ -34,8 +36,10 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
     HttpClientModule,
+    HttpModule,
+    FormsModule,
+    CustomFormsModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
