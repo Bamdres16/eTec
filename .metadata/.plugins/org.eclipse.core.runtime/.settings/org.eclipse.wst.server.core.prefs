@@ -1,3 +1,3 @@
 eclipse.preferences.version=1
 module-start-timeout=300000
-runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="WebSphere Application Server Liberty (2)" id-set\="true" location\="C\:/Proyectos/WorkSpace Packet TEC/runtime environment" name\="WebSphere Application Server Liberty" runtime-type-id\="com.ibm.ws.st.runtime.wlp" timestamp\="1"/>\r\n</runtimes>\r\n
+runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="WebSphere Application Server Liberty (2)" id-set\="true" location\="C\:/Proyectos/runtime environment" name\="WebSphere Application Server Liberty" runtime-type-id\="com.ibm.ws.st.runtime.wlp" timestamp\="2"/>\r\n</runtimes>\r\n

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <servers>
-  <server auto-publish-setting="2" auto-publish-time="1" hostname="localhost" id="WebSphere Application Server Liberty at localhost" looseConfig="true" name="WebSphere Application Server Liberty at localhost" runtime-id="WebSphere Application Server Liberty (2)" server-type="com.ibm.ws.st.server.wlp" server-type-id="com.ibm.ws.st.server.wlp" serverName="PacketTecServer" serverType="libertyServer" start-timeout="60" stop-timeout="15" stopOnShutdown="false" timestamp="3" userDirId="WebSphere Application Server Liberty">
+  <server auto-publish-setting="2" auto-publish-time="1" hostname="localhost" id="WebSphere Application Server Liberty at localhost" looseConfig="true" name="WebSphere Application Server Liberty at localhost" runtime-id="WebSphere Application Server Liberty (2)" server-type="com.ibm.ws.st.server.wlp" server-type-id="com.ibm.ws.st.server.wlp" serverName="PacketTecServer" serverType="libertyServer" start-timeout="60" stop-timeout="15" timestamp="1" userDirId="WebSphere Application Server Liberty">
     <list key="modules" value0="PacketTecServer::org.eclipse.jst.jee.server:PacketTecServer::jst.web::3.1"/>
   </server>
 </servers>
