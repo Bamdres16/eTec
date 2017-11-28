@@ -33,10 +33,21 @@ public class RegisterResource {
 		if (validate(registro) == 2) {
 			return Response.ok("Email Exist").build();
 		} else {
+			if (registro.getEmail().isEmpty() || registro.getName().isEmpty() || registro.getPassword().isEmpty()
+					|| registro.getUsername().isEmpty()) {
+				return Response.ok("Complete all spaces").build();
+			} 
+			if (sonEspacios(registro.getEmail()) || sonEspacios(registro.getName()) ||
 
-			data.add(convertir(registro));
-			results.put("results", data);
-			return Response.ok("Sucess").build();
+					sonEspacios(registro.getUsername()) || sonEspacios(registro.getPassword())) {
+
+				return Response.ok("Complete all spaces").build();
+			}
+			else {
+				data.add(convertir(registro));
+				results.put("results", data);
+				return Response.ok("Sucess").build();
+			}
 		}
 	}
 
@@ -74,23 +85,31 @@ public class RegisterResource {
 		return results;
 
 	}
+
 	@POST
-	@Produces ("application/json")
-	@Consumes ("application/json")
-	@Path ("/login")
-	public Response login (LoginEntity logindata) {
+	@Produces("application/json")
+	@Consumes("application/json")
+	@Path("/login")
+	public Response login(LoginEntity logindata) {
 		JSONArray compare = (JSONArray) results.get("results");
 		for (int i = 0; i < compare.size(); i++) {
-			if (((JSONObject) compare.get(i)).get("username").equals(logindata.getUsername())){
+			if (((JSONObject) compare.get(i)).get("username").equals(logindata.getUsername())) {
 				if (((JSONObject) compare.get(i)).get("password").equals(logindata.getPassword())) {
 					return Response.ok("Login Correct").build();
-				}	
-				else {
+				} else {
 					return Response.ok("Password Incorrect").build();
 				}
 			}
 		}
 		return Response.ok("User not exist").build();
+	}
+
+	public boolean sonEspacios(String cad) {
+		for (int i = 0; i < cad.length(); i++)
+			if (cad.charAt(i) != ' ')
+				return false;
+
+		return true;
 	}
 
 }
