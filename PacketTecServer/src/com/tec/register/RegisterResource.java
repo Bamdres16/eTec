@@ -1,5 +1,7 @@
 package com.tec.register;
 
+import java.util.ArrayList;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -10,15 +12,34 @@ import javax.ws.rs.core.Response;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import com.tec.Interface.Observador;
+import com.tec.Interface.ObservadordeDatos;
+import com.tec.Interface.SujetoObservable;
+
 @Path("/register")
-public class RegisterResource {
+public class RegisterResource implements SujetoObservable {
 	private static JSONArray data = new JSONArray();
 	private static JSONObject results = new JSONObject();
-
+	private ArrayList<Observador> observadores;
+	private ObservadordeDatos visor;
+	public void enlazarobservador (Observador o) {
+		observadores.add(o);
+	}
+	@Override
+	public void notificar() {
+		// TODO Auto-generated method stub
+		for (Observador o : observadores) {
+			o.update();
+		}
+	}
+	
 	@SuppressWarnings("unchecked")
 	public RegisterResource() {
 		// TODO Auto-generated constructor stub
 		results.put("results", data);
+		observadores = new ArrayList<Observador>();
+		visor = new ObservadordeDatos();
+		enlazarobservador(visor);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -49,6 +70,7 @@ public class RegisterResource {
 			else {
 				data.add(convertir(registro));
 				results.put("results", data);
+				notificar();
 				return Response.ok("Sucess").build();
 			}
 		}
@@ -114,5 +136,7 @@ public class RegisterResource {
 
 		return true;
 	}
+
+	
 
 }

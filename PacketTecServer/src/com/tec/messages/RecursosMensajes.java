@@ -14,16 +14,34 @@ import javax.ws.rs.core.Response;
 
 import org.json.simple.JSONObject;
 
-@Path("/message")
-public class RecursosMensajes {
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println(UUID.randomUUID());
-	}
+import com.tec.Interface.Observador;
+import com.tec.Interface.ObservadorMensajes;
+import com.tec.Interface.SujetoObservable;
 
+@Path("/message")
+public class RecursosMensajes implements SujetoObservable{
 	private static List<EntidadMensaje> data = new ArrayList<>();
 	private static JSONObject results = new JSONObject();
+	private ArrayList<Observador> observadores;
+	private ObservadorMensajes visor;
 	
+	@Override
+	public void notificar() {
+		// TODO Auto-generated method stub
+		for (Observador o : observadores) {
+			o.update();
+		}
+	}
+	public RecursosMensajes() {
+		// TODO Auto-generated constructor stub
+		observadores = new ArrayList<Observador>();
+		visor = new ObservadorMensajes();
+		enlazarobservador(visor);
+		
+	}
+	public void enlazarobservador (Observador o) {
+		observadores.add(o);
+	}
 	@POST
 	@Produces("application/json")
 	@Consumes("application/json")
@@ -31,6 +49,7 @@ public class RecursosMensajes {
 		mensaje.identificador(UUID.randomUUID().toString());
 		data.add(mensaje);
 		results.put("messages", data);
+		notificar();
 		return Response.ok("Success").build();
 
 	}
@@ -55,5 +74,7 @@ public class RecursosMensajes {
 			return Response.serverError().entity(ex.getMessage()).build();
 		}
 	}
+
+	
 
 }

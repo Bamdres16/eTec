@@ -1,4 +1,4 @@
-package com.tec.register;
+package com.tec.Interface;
 
 public class ObservadordeDatos implements Observador {
 
@@ -7,5 +7,6 @@ public class ObservadordeDatos implements Observador {
 		// TODO Auto-generated method stub
 		System.out.println("Modified");
 	}
+	
 
 }
