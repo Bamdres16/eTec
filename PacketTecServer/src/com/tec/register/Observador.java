@@ -1,4 +1,4 @@
-package com.tec.messages;
+package com.tec.register;
 
 public interface Observador {
 	public void update ();
