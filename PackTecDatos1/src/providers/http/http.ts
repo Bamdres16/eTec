@@ -20,12 +20,23 @@ export class HttpProvider {
   getUsers(){
     return this.http1.get(this.path);
   }
-  callPost(ussername, name, email, password)
+  callPostRegistro(username, name, email, password)
   {
-    let url = 'http://localhost:9080/PacketTecServer/rest/register';
-    let param = {usser : ussername, person : name, correo : email, pass : password};
-    let request = this.http.post(url, param);
+    //let url = 'http://localhost:9080/PacketTecServer/rest/register';
+    let param = {username : username, name : name, email : email, password : password};
+    //this.datos = {username : username, name : name, email : email, password : password};
+    let request = this.http.post(this.path, param);
     return request.toPromise();
+    
+  }
+
+  callPostLogin(username,password)
+  {
+    let url = 'http://localhost:9080/PacketTecServer/rest/register/login';
+    let param = {username : username, password : password};
+    let request = this.http.post(url , param);
+    return request.toPromise();
+    
   }
 loadUsers(){
   return this.http

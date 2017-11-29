@@ -34,7 +34,7 @@ public class RegisterResource {
 			return Response.ok("Email Exist").build();
 		} else {
 			if (registro.getEmail().isEmpty() || registro.getName().isEmpty() || registro.getPassword().isEmpty()
-					|| registro.getUsername().isEmpty()) {
+					|| registro.getUsername().isEmpty() || registro.getUsername().length() < 4 || registro.getPassword().length() < 6) {
 				return Response.ok("Complete all spaces").build();
 			} 
 			if (sonEspacios(registro.getEmail()) || sonEspacios(registro.getName()) ||
@@ -44,7 +44,7 @@ public class RegisterResource {
 				return Response.ok("Complete all spaces").build();
 			}
 			else {
-				data.add(convertir(registro));
+				data.add(convertir(registro)); 
 				results.put("results", data);
 				return Response.ok("Sucess").build();
 			}
