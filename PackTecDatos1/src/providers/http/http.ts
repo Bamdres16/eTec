@@ -43,6 +43,9 @@ export class HttpProvider {
     return request.toPromise();
 
   }
+  getUserLogin(){
+    return this.http1.get('http://localhost:9080/PacketTecServer/rest/register/login');
+  }
 loadUsers(){
   return this.http
   .get(this.path)

@@ -13,7 +13,7 @@ import {ServidorPage} from '../servidor/servidor';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
+  username:string = "";
   tab1Root = HomePage;
   tab2Root = AboutPage;
   tab3Root = ServidorPage;
@@ -21,6 +21,7 @@ export class TabsPage {
   //tab5Root = MensajePage;
 //  //<ion-tab [root]="tab5Root" tabTitle="Login" tabIcon="flower"></ion-tab>
   constructor() {
-
+    
   }
+  
 }

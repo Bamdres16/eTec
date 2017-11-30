@@ -7,7 +7,9 @@
 </ion-header>
 
 <ion-content>
-<button ion-button full (click) = "CargarUsuarios()"> Cargar Usuarios</button>
+    <ion-fab top right edge>
+        <button ion-fab mini (click) = "IrContactos()"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list>
   <ion-list>
     <ion-item *ngFor="let usuario of usuarios"
               (click) = "Mostrar(usuario)">
