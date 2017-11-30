@@ -21,25 +21,10 @@ export class HttpProvider {
   getUsers(){
     return this.http1.get(this.path);
   }
-<<<<<<< HEAD
-  callPostRegistro(username, name, email, password)
-  {
-    //let url = 'http://localhost:9080/PacketTecServer/rest/register';
-    let param = {username : username, name : name, email : email, password : password};
-    //this.datos = {username : username, name : name, email : email, password : password};
-    let request = this.http.post(this.path, param);
-    return request.toPromise();
-    
-  }
+  
 
-  callPostLogin(username,password)
-  {
-    let url = 'http://localhost:9080/PacketTecServer/rest/register/login';
-    let param = {username : username, password : password};
-    let request = this.http.post(url , param);
-    return request.toPromise();
+  
     
-=======
   getMessages(nameg){
     return this.http1.get("http://localhost:9080/PacketTecServer/rest/message/?name="+nameg);
   }
@@ -64,7 +49,6 @@ export class HttpProvider {
   }
   getUserLogin(){
     return this.http1.get('http://localhost:9080/PacketTecServer/rest/register/login');
->>>>>>> 1b68d42672a83a95babd4d9960f38203ec0e8a83
   }
 loadUsers(){
   return this.http
@@ -87,7 +71,7 @@ loadUsers(){
   {
     let url = "http://localhost:9080/PacketTecServer/rest/register?ussername=" + ussername +"&name="+ name+"&email="+ email + "&password" + password;
     let request = this.http.get(url);
-    return request.toPromise();
+    return request.toPromise(); 
   }
 
 }
