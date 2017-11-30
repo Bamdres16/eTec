@@ -39,7 +39,7 @@ getItems(ev: any) {
   let val = ev.target.value;
   if (val && val.trim() != '') {
     this.usuarios = this.usuarios.filter((usuario) => {
-      return (usuario.indexOf(val > -1));
+      return (usuario.toLowerCase().indexOf(val.toLowerCase()) > -1);
     })
   }
 }
