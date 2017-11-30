@@ -15,6 +15,14 @@
           </ion-item>
         </ion-list>
     </ion-row>
+    <ion-row>
+        <ion-list>
+            <ion-item *ngFor="let puta of putas">
+              <h2> {{ nombre }} </h2>
+              <p> {{ puta.message }} </p>
+            </ion-item>
+          </ion-list>
+      </ion-row>
   </ion-grid>
 
 </ion-content>
