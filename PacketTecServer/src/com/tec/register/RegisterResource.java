@@ -26,6 +26,7 @@ public class RegisterResource implements SujetoObservable {
 	private ArrayList<Observador> observadores;
 	private ObservadordeDatos visor;
 	public static Registros datos = new Registros();
+	private static String ultimo = null;
 	public void enlazarobservador (Observador o) {
 		observadores.add(o);
 	}
@@ -51,7 +52,7 @@ public class RegisterResource implements SujetoObservable {
 	@Produces("application/json")
 	@Consumes("application/json")
 	public Response registrar(RegisterEntity registro) {
-
+		results = datos.getUsuarios();
 		if (validate(registro) == 1) {
 			return Response.ok("User Exist").build();
 		}
@@ -124,6 +125,7 @@ public class RegisterResource implements SujetoObservable {
 		for (int i = 0; i < compare.size(); i++) {
 			if (((JSONObject) compare.get(i)).get("username").equals(logindata.getUsername())) {
 				if (((JSONObject) compare.get(i)).get("password").equals(logindata.getPassword())) {
+					ultimo = logindata.getUsername();
 					return Response.ok("Login Correct").build();
 				} else {
 					return Response.ok("Password Incorrect").build();
@@ -155,6 +157,17 @@ public class RegisterResource implements SujetoObservable {
 				return false;
 
 		return true;
+	}
+	@GET
+	@Produces ("application/json")
+	@Path ("/login")
+	public Response ultimoLogin () {
+		if (ultimo != null) {
+			return Response.ok(ultimo).build();
+		}
+		else {
+			return Response.ok("No hay logeados").build();
+		}
 	}
 
 	
