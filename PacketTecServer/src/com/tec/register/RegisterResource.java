@@ -93,6 +93,7 @@ public class RegisterResource implements SujetoObservable {
 	}
 
 	private int validate(RegisterEntity registerEntity) {
+		results = datos.getUsuarios();
 		JSONArray compare = (JSONArray) results.get("results");
 		for (int i = 0; i < compare.size(); i++) {
 			if (((JSONObject) compare.get(i)).get("username").equals(registerEntity.getUsername())) {

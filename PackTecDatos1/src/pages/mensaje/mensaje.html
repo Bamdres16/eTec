@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar>
-      <ion-title> Chat </ion-title>
+      <ion-title> {{nombre}} </ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -8,15 +8,21 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col col-9 class = "message">
-        <span class = "user_name"></span><br>
-        <div class="time"> date:'dd.MM hh:MM'</div>
-      </ion-col>
-      <ion-col col-md class = "message">
-        <span class = "user_name"></span><br>
-        <div class="time"> date:'dd.MM hh:MM'</div>
-      </ion-col>
+      <ion-list>
+          <ion-item *ngFor="let puta of putas">
+            <h2> {{ nombre }} </h2>
+            <p> {{ puta.message }} </p>
+          </ion-item>
+        </ion-list>
     </ion-row>
+    <ion-row>
+        <ion-list>
+            <ion-item *ngFor="let puta of putas">
+              <h2> {{ nombre }} </h2>
+              <p> {{ puta.message }} </p>
+            </ion-item>
+          </ion-list>
+      </ion-row>
   </ion-grid>
 
 </ion-content>
@@ -26,11 +32,11 @@
     <ion-row class= ''message_row>
       <ion-col col-9>
         <ion-item no lines>
-          <ion-input type= "text"></ion-input>
+          <ion-input type= "text" placeholder= 'Hola' [(ngModel)]="mensaje"></ion-input>
         </ion-item>
       </ion-col>
       <ion-col col-3>
-        <button ion-button clear color="primary">Enviar </button>
+        <button ion-button clear color="primary" (click)= "PostS()">Enviar </button>
       </ion-col>
      </ion-row>
   </ion-toolbar>
