@@ -13,6 +13,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class HttpProvider {
   datos: any;
+  postpath : string = 'http://localhost:9080/PacketTecServer/rest/message';
   path : string = 'http://localhost:9080/PacketTecServer/rest/register';
   constructor(public http:Http, public http1:HttpClient) {
     console.log('Hello HttpProvider Provider');
@@ -20,12 +21,27 @@ export class HttpProvider {
   getUsers(){
     return this.http1.get(this.path);
   }
-  callPost(ussername, name, email, password)
+  getMessages(nameg){
+    return this.http1.get("http://localhost:9080/PacketTecServer/rest/message/?name="+nameg);
+  }
+
+  callPostRegistro(username, name, email, password)
   {
-    let url = 'http://localhost:9080/PacketTecServer/rest/register';
-    let param = {usser : ussername, person : name, correo : email, pass : password};
-    let request = this.http.post(url, param);
+    //let url = 'http://localhost:9080/PacketTecServer/rest/register';
+    let param = {username : username, name : name, email : email, password : password};
+    //this.datos = {username : username, name : name, email : email, password : password};
+    let request = this.http.post(this.path, param);
     return request.toPromise();
+
+  }
+
+  callPostLogin(username,password)
+  {
+    let url = 'http://localhost:9080/PacketTecServer/rest/register/login';
+    let param = {username : username, password : password};
+    let request = this.http.post(url , param);
+    return request.toPromise();
+
   }
 loadUsers(){
   return this.http
@@ -39,11 +55,16 @@ loadUsers(){
 
 
   }
+  postUsers(nombrePara, mensaje,nombreDe){
+    let parametro =  { destinatario : nombrePara, message : mensaje, remitente : nombreDe}
+    let request = this.http.post(this.postpath, parametro);
+    return request.toPromise();
+  }
   callGet(ussername, name, email, password)
   {
     let url = "http://localhost:9080/PacketTecServer/rest/register?ussername=" + ussername +"&name="+ name+"&email="+ email + "&password" + password;
     let request = this.http.get(url);
-    return request.toPromise(); 
+    return request.toPromise();
   }
 
 }

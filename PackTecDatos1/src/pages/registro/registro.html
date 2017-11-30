@@ -52,6 +52,6 @@
       <p ion-text color="danger" [hidden]="!confirmPass.errors.equalTo">Tiene que ser igual.</p>
     </div>
   </ion-list>
-  <button ion-button (click)="callPostService(ussername, name, email, password)" block color = "dark" round >Registrarse</button>
+  <button ion-button (click)="callPostService(username, name, email, password, passwordconfirm)" block color = "dark" round >Registrarse</button>
   <ion-textarea>class="netResponse" </ion-textarea>
 </ion-content>
