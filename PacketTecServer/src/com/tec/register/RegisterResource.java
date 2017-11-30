@@ -3,9 +3,11 @@ package com.tec.register;
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
@@ -22,6 +24,7 @@ public class RegisterResource implements SujetoObservable {
 	private static JSONObject results = new JSONObject();
 	private ArrayList<Observador> observadores;
 	private ObservadordeDatos visor;
+	public static Registros datos = new Registros();
 	public void enlazarobservador (Observador o) {
 		observadores.add(o);
 	}
@@ -68,8 +71,7 @@ public class RegisterResource implements SujetoObservable {
 				return Response.ok("Complete all spaces").build();
 			}
 			else {
-				data.add(convertir(registro));
-				results.put("results", data);
+				datos.GuardarDatos(convertir(registro));
 				notificar();
 				return Response.ok("Sucess").build();
 			}
@@ -107,7 +109,7 @@ public class RegisterResource implements SujetoObservable {
 	@Produces("application/json")
 	public JSONObject getRegistros() {
 
-		return results;
+		return datos.getUsuarios();
 
 	}
 
@@ -116,6 +118,7 @@ public class RegisterResource implements SujetoObservable {
 	@Consumes("application/json")
 	@Path("/login")
 	public Response login(LoginEntity logindata) {
+		results = datos.getUsuarios();
 		JSONArray compare = (JSONArray) results.get("results");
 		for (int i = 0; i < compare.size(); i++) {
 			if (((JSONObject) compare.get(i)).get("username").equals(logindata.getUsername())) {
@@ -124,6 +127,22 @@ public class RegisterResource implements SujetoObservable {
 				} else {
 					return Response.ok("Password Incorrect").build();
 				}
+			}
+		}
+		return Response.ok("User not exist").build();
+	}
+	
+	@DELETE
+	@Produces ("application/json")
+	@Path ("{username}")
+	public Response deleteUser (@PathParam ("username") String username) {
+		results = datos.getUsuarios();
+		JSONArray compare = (JSONArray) results.get("results");
+		for (int i = 0; i < compare.size(); i++) {
+			if (((JSONObject) compare.get(i)).get("username").equals(username)) {
+				results.put("results", compare.remove(i));
+				notificar();
+				return Response.ok("User delete").build();
 			}
 		}
 		return Response.ok("User not exist").build();
