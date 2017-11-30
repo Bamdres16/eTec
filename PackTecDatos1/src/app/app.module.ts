@@ -13,7 +13,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {RegistroPage} from '../pages/registro/registro';
 import {ServidorPage} from '../pages/servidor/servidor';
 import {MensajePage} from '../pages/mensaje/mensajes';
-import {ContactosPage} from '../pages/contactos/contactos';
 import { HttpProvider } from '../providers/http/http';
 import {HttpModule} from '@angular/http';
 import { HttpClientModule} from '@angular/common/http';
@@ -30,8 +29,7 @@ import { CustomFormsModule } from 'ng2-validation';
     LoginPage,
     RegistroPage,
     ServidorPage,
-    MensajePage,
-    ContactosPage
+    MensajePage
 
   ],
   imports: [
@@ -52,8 +50,7 @@ import { CustomFormsModule } from 'ng2-validation';
     LoginPage,
     RegistroPage,
     ServidorPage,
-    MensajePage,
-    ContactosPage
+    MensajePage
   ],
   providers: [
     StatusBar,

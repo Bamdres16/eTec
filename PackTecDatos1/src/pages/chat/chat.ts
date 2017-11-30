@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {HttpProvider} from '../../providers/http/http';
 import {MensajePage } from '../mensaje/mensajes';
-import {ContactosPage} from "../contactos/contactos";
 
 @Component({
   selector: 'page-chat',
@@ -11,6 +10,7 @@ import {ContactosPage} from "../contactos/contactos";
 export class ChatPage {
   usuarios : any[]= [];
   remitente:string ="";
+  searchQuery: string = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public http:HttpProvider, public userService: HttpProvider) {
@@ -19,9 +19,7 @@ export class ChatPage {
   CargarRemitente(nombreR){
     this.remitente = nombreR;
   }
-  IrContactos(){
-    this.navCtrl.push(ContactosPage);
-  }
+  
   CargarUsuarios(){
     this.http.getUsers().subscribe((data) =>{
       this.usuarios = data['results'];
@@ -33,7 +31,16 @@ export class ChatPage {
   )
  }
  Mostrar(nombre){
-  this.navCtrl.push(MensajePage,{nombre: nombre.name.first});
+  this.navCtrl.push(MensajePage,{nombre: nombre.name});
   console.log( nombre.name.first);
+}
+getItems(ev: any) {
+  this.CargarUsuarios();
+  let val = ev.target.value;
+  if (val && val.trim() != '') {
+    this.usuarios = this.usuarios.filter((usuario) => {
+      return (usuario.toLowerCase().indexOf(val.toLowerCase()) > -1);
+    })
+  }
 }
 }
