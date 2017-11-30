@@ -2,7 +2,10 @@ import { Component} from '@angular/core';
 import { NavController, AlertController} from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 import { TabsPage} from '../tabs/tabs';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1b68d42672a83a95babd4d9960f38203ec0e8a83
 
 @Component({
   selector: 'page-registro',
@@ -11,11 +14,19 @@ import { TabsPage} from '../tabs/tabs';
 
 export class RegistroPage {
   respuesta = "";
+<<<<<<< HEAD
+=======
+  myModel: any;
+>>>>>>> 1b68d42672a83a95babd4d9960f38203ec0e8a83
   constructor(public navCtrl: NavController, public network: HttpProvider, public alertCtrl: AlertController){
 
   }
   ionViewDidLoad(){ }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 1b68d42672a83a95babd4d9960f38203ec0e8a83
   callPostService(username, name, email, password, passwordconfirm)
   {
     if (password == passwordconfirm && name != null && email != null && password !=null && username != null
@@ -33,8 +44,11 @@ export class RegistroPage {
       })
 
     }
+<<<<<<< HEAD
    
     
+=======
+>>>>>>> 1b68d42672a83a95babd4d9960f38203ec0e8a83
   }
   showAlert() {
     let alert = this.alertCtrl.create({
@@ -57,6 +71,17 @@ export class RegistroPage {
       buttons: ['OK']
     });
     alert.present();
+<<<<<<< HEAD
+=======
+  }
+  showAlertExitUser() {
+    let alert = this.alertCtrl.create({
+      title: ' NO Registrado',
+      subTitle: 'El nombre de usuario ya esta registrado! cambielo prro',
+      buttons: ['OK']
+    });
+    alert.present();
+>>>>>>> 1b68d42672a83a95babd4d9960f38203ec0e8a83
   }
   showAlertExitUser() {
     let alert = this.alertCtrl.create({
@@ -77,11 +102,22 @@ export class RegistroPage {
   }
 
 
+  app(){
+    this.navCtrl.push(TabsPage);
+
+  }
+  validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
+
+
   callGetService(ussername, name, email, password)
   {
     let p = this.network.callGet(ussername, name, email, password);
     p.then(data => {
       console.log(JSON.stringify(data.json().args));
     })
-  }
+}
+
 }
