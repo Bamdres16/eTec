@@ -17,6 +17,7 @@ import org.json.simple.JSONObject;
 import com.tec.Interface.Observador;
 import com.tec.Interface.ObservadorMensajes;
 import com.tec.Interface.SujetoObservable;
+import com.tec.baseDatos.Mensajes;
 
 @Path("/message")
 public class RecursosMensajes implements SujetoObservable {

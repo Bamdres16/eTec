@@ -17,6 +17,7 @@ import org.json.simple.JSONObject;
 import com.tec.Interface.Observador;
 import com.tec.Interface.ObservadordeDatos;
 import com.tec.Interface.SujetoObservable;
+import com.tec.baseDatos.Registros;
 
 @Path("/register")
 public class RegisterResource implements SujetoObservable {
