@@ -11,6 +11,7 @@ export class ChatPage {
   usuarios : any[]= [];
   remitente:string ="";
   searchQuery: string = '';
+  nombres: any[] =[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public http:HttpProvider, public userService: HttpProvider) {
@@ -36,10 +37,17 @@ export class ChatPage {
 }
 getItems(ev: any) {
   this.CargarUsuarios();
+  for(let u in this.usuarios){
+    this.nombres.push(this.usuarios[u].name);
+  }
+  console.log(this.nombres);
   let val = ev.target.value;
   if (val && val.trim() != '') {
-    this.usuarios = this.usuarios.filter((usuario) => {
-      return (usuario.toLowerCase().indexOf(val.toLowerCase()) > -1);
+    this.nombres = this.nombres.filter((usuario) => {
+      if(usuario){
+        return (usuario.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      }
+     
     })
   }
 }
