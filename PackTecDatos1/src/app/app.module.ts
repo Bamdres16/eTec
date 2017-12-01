@@ -18,6 +18,7 @@ import {HttpModule} from '@angular/http';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';     
 import { CustomFormsModule } from 'ng2-validation';
+import { UsernamelogProvider } from '../providers/usernamelog/usernamelog';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { CustomFormsModule } from 'ng2-validation';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HttpProvider
+    HttpProvider,
+    UsernamelogProvider
   ]
 })
 export class AppModule {}

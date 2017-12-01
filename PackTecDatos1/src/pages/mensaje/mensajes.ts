@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {HttpProvider} from '../../providers/http/http';
 import {HttpClient} from '@angular/common/http';
+import { UsernamelogProvider} from '../../providers/usernamelog/usernamelog';
+
 @Component({
   selector: 'page-mensaje',
   templateUrl: 'mensaje.html'
@@ -11,10 +13,11 @@ export class MensajePage {
   putas: any[] = [];
   destinatarios: any[] = [];
   mensaje:string = '';
-  nombreDe: string = "pepito";
+  nombreDe: string = "";
   Json :string = '';
   found:boolean;
-  constructor(public navCtrl: NavController, public http:HttpProvider, public userService:HttpProvider,  public http1:HttpClient, public navParams:NavParams) {
+  constructor(public navCtrl: NavController, public http:HttpProvider, public userService:HttpProvider,  public http1:HttpClient, public navParams:NavParams,public userP: UsernamelogProvider) {
+    this.setRemite();
     this.nombre = this.navParams.get('nombre');
     this.found = false;
     if(this.putas.length != null){
@@ -45,6 +48,10 @@ export class MensajePage {
       console.log(error);
     }
   )
+  }
+  setRemite(){
+    this.nombreDe = this.userP.getUsername();
+    console.log(this.nombreDe);
   }
   EnviarMensaje(){
     if(this.mensaje.length){

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {HttpProvider} from '../../providers/http/http';
 import {MensajePage } from '../mensaje/mensajes';
+import { UsernamelogProvider} from '../../providers/usernamelog/usernamelog';
 
 @Component({
   selector: 'page-chat',
@@ -11,26 +12,33 @@ export class ChatPage {
   usuarios : any[]= [];
   remitente:string ="";
   searchQuery: string = '';
-  nombres: any;
+  nombres: any[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public http:HttpProvider, public userService: HttpProvider) {
+    public http:HttpProvider, public userService: HttpProvider, public userP: UsernamelogProvider) {
+     this.setRemitente();
      this.CargarUsuarios();
-  }
-  CargarRemitente(nombreR){
-    this.remitente = nombreR;
   }
   
   CargarUsuarios(){
     this.http.getUsers().subscribe((data) =>{
       this.usuarios = data['results'];
-      this.nombres = this.usuarios;
+      for(let u in this.usuarios){
+        if(this.usuarios[u].username !== this.remitente){
+          this.nombres.push(this.usuarios[u]);
+        }
+      }
+      
       console.log(this.usuarios)
     },
     (error) =>{
       console.log(error);
     }
   )
+ }
+ setRemitente(){
+  this.remitente = this.userP.getUsername();
+  console.log(this.remitente);
  }
  Mostrar(nombre){
   this.navCtrl.push(MensajePage,{nombre: nombre.name});
