@@ -11,7 +11,7 @@ export class ChatPage {
   usuarios : any[]= [];
   remitente:string ="";
   searchQuery: string = '';
-  nombres: any[] =[];
+  nombres: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public http:HttpProvider, public userService: HttpProvider) {
@@ -24,6 +24,7 @@ export class ChatPage {
   CargarUsuarios(){
     this.http.getUsers().subscribe((data) =>{
       this.usuarios = data['results'];
+      this.nombres = this.usuarios;
       console.log(this.usuarios)
     },
     (error) =>{
@@ -31,22 +32,31 @@ export class ChatPage {
     }
   )
  }
+ public viewList(id){
+  let vista = this.usuarios.filter(function(e,i){
+    e.username == id})[0];
+  let alert = this.alertCtrl.create({
+    title: vista.name,
+    subtitle: vista.email,
+    buttons: ['OK']
+  });
+  alert.present();
+ }
  Mostrar(nombre){
+  viewList(nombre);
   this.navCtrl.push(MensajePage,{nombre: nombre.name});
   console.log( nombre.name.first);
 }
 getItems(ev: any) {
   this.CargarUsuarios();
-  for(let u in this.usuarios){
-    this.nombres.push(this.usuarios[u].name);
-  }
+  
   console.log(this.nombres);
   let val = ev.target.value;
   if (val && val.trim() != '') {
-    this.nombres = this.nombres.filter((usuario) => {
-      if(usuario){
-        return (usuario.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      }
+    this.nombres = this.nombres.filter((usuaria) => {
+      
+        return (usuaria.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+    
      
     })
   }
