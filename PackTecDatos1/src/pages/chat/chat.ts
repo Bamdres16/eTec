@@ -43,11 +43,9 @@ getItems(ev: any) {
   console.log(this.nombres);
   let val = ev.target.value;
   if (val && val.trim() != '') {
-    this.nombres = this.nombres.filter((usuario) => {
-      if(usuario){
-        return (usuario.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      }
-     
+    this.usuarios = this.usuarios.filter((usuario) => {
+        return (usuario.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+
     })
   }
 }
