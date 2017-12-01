@@ -32,18 +32,7 @@ export class ChatPage {
     }
   )
  }
- public viewList(id){
-  let vista = this.usuarios.filter(function(e,i){
-    e.username == id})[0];
-  let alert = this.alertCtrl.create({
-    title: vista.name,
-    subtitle: vista.email,
-    buttons: ['OK']
-  });
-  alert.present();
- }
  Mostrar(nombre){
-  viewList(nombre);
   this.navCtrl.push(MensajePage,{nombre: nombre.name});
   console.log( nombre.name.first);
 }
