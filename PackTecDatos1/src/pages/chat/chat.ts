@@ -45,8 +45,6 @@ getItems(ev: any) {
     this.nombres = this.nombres.filter((usuaria) => {
       
         return (usuaria.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
-    
-     
     })
   }
 }
