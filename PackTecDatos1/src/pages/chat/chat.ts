@@ -42,7 +42,7 @@ export class ChatPage {
  }
  Mostrar(nombre){
   this.navCtrl.push(MensajePage,{nombre: nombre.name});
-  console.log( nombre.name.first);
+  console.log("destinatario" + nombre.name);
 }
 getItems(ev: any) {
   this.CargarUsuarios();

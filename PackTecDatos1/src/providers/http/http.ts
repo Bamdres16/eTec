@@ -25,8 +25,8 @@ export class HttpProvider {
 
   
     
-  getMessages(nameg){
-    return this.http1.get("http://localhost:9080/PacketTecServer/rest/message/?name="+nameg);
+  getMessages(){
+    return this.http1.get("http://localhost:9080/PacketTecServer/rest/message");
   }
 
   callPostRegistro(username, name, email, password)

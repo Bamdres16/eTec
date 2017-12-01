@@ -9,17 +9,17 @@
   <ion-grid>
     <ion-row>
       <ion-list>
-          <ion-item *ngFor="let puta of putas">
-            <h2> {{ nombre }} </h2>
-            <p> {{ puta.message }} </p>
+          <ion-item *ngFor="let enviado of enviados">
+            <h2> {{ enviado.remitente }} </h2>
+            <p> {{ enviado.message }} </p>
           </ion-item>
         </ion-list>
     </ion-row>
     <ion-row>
         <ion-list>
-            <ion-item *ngFor="let puta of putas">
-              <h2> {{ nombre }} </h2>
-              <p> {{ puta.message }} </p>
+            <ion-item *ngFor="let recibido of recibidos">
+              <h2> {{ recibido.destinatario}} </h2>
+              <p> {{ recibido.message }} </p>
             </ion-item>
           </ion-list>
       </ion-row>
