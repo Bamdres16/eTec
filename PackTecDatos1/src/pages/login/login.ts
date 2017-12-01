@@ -3,8 +3,10 @@ import { NavController, AlertController} from 'ionic-angular';
 import {RegistroPage} from '../registro/registro';
 import { HttpProvider } from '../../providers/http/http';
 import { TabsPage} from '../tabs/tabs';
+
 import { ChatPage } from '../chat/chat';
 import { UsernamelogProvider} from '../../providers/usernamelog/usernamelog';
+
 
 @Component({
   selector: 'page-login',
@@ -12,9 +14,11 @@ import { UsernamelogProvider} from '../../providers/usernamelog/usernamelog';
 })
 export class LoginPage {
   respuesta = "";
+
   constructor(public navCtrl: NavController, public network: HttpProvider, public alertCtrl: AlertController, public userP: UsernamelogProvider) {
 
   }   
+
 
   registro(){
     this.navCtrl.push(RegistroPage)
@@ -26,7 +30,9 @@ export class LoginPage {
     p.then(data => {
       this.respuesta = data["_body"];
       if(this.respuesta=="Login Correct") {
+
         this.userP.setUsername(username);
+
         this.showAlert();
      } else if (this.respuesta=="User not exist") {
         this.showAlertExitUser();

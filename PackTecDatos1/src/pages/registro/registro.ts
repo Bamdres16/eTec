@@ -2,7 +2,9 @@ import { Component} from '@angular/core';
 import { NavController, AlertController} from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 import { TabsPage} from '../tabs/tabs';
+
 import { UsernamelogProvider} from '../../providers/usernamelog/usernamelog';
+
 
 @Component({
   selector: 'page-registro',
@@ -11,7 +13,9 @@ import { UsernamelogProvider} from '../../providers/usernamelog/usernamelog';
 
 export class RegistroPage {
   respuesta = "";
+
   constructor(public navCtrl: NavController, public network: HttpProvider, public alertCtrl: AlertController,public userP: UsernamelogProvider){
+
 
   }
   ionViewDidLoad(){ }
@@ -25,7 +29,9 @@ export class RegistroPage {
         this.respuesta = data["_body"];
         if(this.respuesta=="Sucess") {
           this.showAlert();
+
           this.userP.setUsername(username);
+
        } else if (this.respuesta =="User Exist") {
           this.showAlertExitUser();
        } else if (this.respuesta == "Email Exist"){

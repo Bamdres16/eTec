@@ -1,5 +1,7 @@
 package com.tec.register;
 
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
@@ -10,7 +12,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -84,10 +85,10 @@ public class RegisterResource implements SujetoObservable {
 	private JSONObject convertir(RegisterEntity registro) {
 
 		JSONObject reg = new JSONObject();
-		reg.put("name", registro.getName());
-		reg.put("password", registro.getPassword());
-		reg.put("email", registro.getEmail());
-		reg.put("username", registro.getUsername());
+		reg.put("name", registro.getName().toString());
+		reg.put("password", registro.getPassword().toString());
+		reg.put("email", registro.getEmail().toString());
+		reg.put("username", registro.getUsername().toString());
 		return reg;
 
 	}

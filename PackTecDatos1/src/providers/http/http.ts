@@ -21,7 +21,7 @@ export class HttpProvider {
   getUsers(){
     return this.http1.get(this.path);
   }
-  
+
 
   
     
@@ -49,6 +49,7 @@ export class HttpProvider {
   }
   getUserLogin(){
     return this.http1.get('http://localhost:9080/PacketTecServer/rest/register/login');
+
   }
 loadUsers(){
   return this.http
