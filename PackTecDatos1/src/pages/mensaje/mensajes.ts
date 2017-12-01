@@ -29,30 +29,33 @@ export class MensajePage {
     .subscribe(
       (data:any[]) =>{
         this.destinatarios = data["mensajes"];
-          console.log(this.destinatarios)
-        for(let i in this.destinatarios){
-          
-          console.log(i);
-         
-          if(this.destinatarios[i].destinatario === this.destinatario && this.destinatarios[i].remitente === this.nombreDe){
-            console.log(this.destinatarios[i]);
-            this.enviados.push(this.destinatarios[i]);
-            console.log(this.enviados);
-          }else{
-            console.log(this.recibidos);
-            if(this.destinatarios[i].destinatario === this.nombreDe && this.destinatarios[i].remitente === this.destinatario){
-              //console.log(this.destinatarios[i]);
-              this.recibidos.push(this.destinatarios[i]);
-              console.log(this.recibidos);
-            }
-          }
-        }
+          console.log("total de mensjaes: "+this.destinatarios)
+          this.sethtml(this.destinatarios);
+        
 
     },
     (error) =>{
       console.log(error);
     }
   )
+  }
+  sethtml(menssages){
+    console.log(menssages.length)
+    for(let i in menssages){
+      console.log(i);
+      if(menssages[i].destinatario === this.destinatario && menssages[i].remitente === this.nombreDe){
+        //console.log(menssages[i]);
+        this.enviados.push(menssages[i]);
+        console.log("lista enviados: " + this.enviados);
+      }else{
+        //console.log(this.recibidos);
+        if(menssages[i].destinatario === this.nombreDe && menssages[i].remitente === this.destinatario){
+          //console.log(this.destinatarios[i]);
+          this.recibidos.push(menssages[i]);
+          console.log("lista recibidos: "+this.recibidos);
+        }
+      }
+        }
   }
   setRemite(){
     this.nombreDe = this.userP.getUsername();
